@@ -444,6 +444,14 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5033461938759692545, guid: 102873fbc8e2da74c9b6dbf7cc7ae64c, type: 3}
+      propertyPath: baseMask
+      value: 
+      objectReference: {fileID: 2800000, guid: 8aa74631f2095d04e828db12fcc5dd6a, type: 3}
+    - target: {fileID: 5033461938759692545, guid: 102873fbc8e2da74c9b6dbf7cc7ae64c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7303709560128194924, guid: 102873fbc8e2da74c9b6dbf7cc7ae64c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -487,6 +495,10 @@ PrefabInstance:
     - target: {fileID: 7930889011988566998, guid: 102873fbc8e2da74c9b6dbf7cc7ae64c, type: 3}
       propertyPath: m_Name
       value: Diggy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402532334871638933, guid: 102873fbc8e2da74c9b6dbf7cc7ae64c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

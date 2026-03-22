@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pickaxe-model_basecolor
-  m_Shader: {fileID: -6465566751694194690, guid: 7ed6b9074a4fda144a49b2204c0a8118, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3eb34d2a34216b448825a860c9d5f1af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -52,6 +52,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4ca416a252fb5a34b8940632de0b3fdf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MaskTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -68,8 +72,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 78f3a0544bb82bb4fae119ab215cf93f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_840c4a7ccef64a5e961b095912eed12b_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 4ca416a252fb5a34b8940632de0b3fdf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_9574a68fac164ef4b3e857957d5840c9_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 4ca416a252fb5a34b8940632de0b3fdf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a02c0de4058c488b908a4b69afdbe702_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 78f3a0544bb82bb4fae119ab215cf93f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -103,7 +115,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DirtIntensity: 0.54715186
+    - _DirtIntensity: 0.6167587
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
