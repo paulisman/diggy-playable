@@ -28,7 +28,7 @@ public class CleaningManager : MonoBehaviour
     public Texture2D baseMask;
 
     /// <summary>
-    /// The size of the round brush for washing.
+    /// The radius of the round brush for washing.
     /// </summary>
     [Range(1, 30)]
     public int brushSize = 10;
@@ -36,6 +36,8 @@ public class CleaningManager : MonoBehaviour
     private Texture2D runtimeMask;
     private Animator objectAnimator;
     private bool wasTurned = false;
+    private Vector2? lastPixelUV = null;
+    private float interpolationStepSize;
 
     private void Start()
     {
@@ -45,25 +47,55 @@ public class CleaningManager : MonoBehaviour
         runtimeMask.SetPixels(baseMask.GetPixels());
         runtimeMask.Apply();
 
+        interpolationStepSize = brushSize / runtimeMask.width * 0.5f;   //half a brush radius per drawing area is considered optimal for UV interpolation
+
         objectMaterial.SetFloat("_DirtIntensity", Mathf.Sqrt(currentDirt));
         objectMaterial.SetTexture("_MaskTexture", runtimeMask);
     }
 
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (!Pointer.current.press.isPressed)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
-            {
-                if (hitInfo.collider.gameObject == this.gameObject)
-                {
-                    DecreaseDirt();
+            lastPixelUV = null;
+            return; //reset last pixel UV, because input is not pressed
+        }
+        
+        Ray ray = Camera.main.ScreenPointToRay(Pointer.current.position.ReadValue());
 
-                    BrushWashing(hitInfo.textureCoord);
-                }
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo) || (hitInfo.collider.gameObject != this.gameObject))
+        {
+            lastPixelUV = null;
+            return; //reset last pixel UV, because ray is out of the collider
+        }
+
+        DecreaseDirt();
+
+        Vector2 pixelUV = hitInfo.textureCoord;
+
+        if (lastPixelUV.HasValue)
+        {
+            float distInterpolation = Vector2.Distance(lastPixelUV.Value, pixelUV);
+            int stepsInterpolation = Mathf.Max(1, Mathf.CeilToInt(distInterpolation / interpolationStepSize));  //prevent to be 0, because of dividing by zero later
+
+            for (int i = 0; i <= stepsInterpolation; i++)
+            {
+                Vector2 pix = Vector2.Lerp(lastPixelUV.Value, pixelUV, (float)i / stepsInterpolation);
+
+                Debug.Log("lastPixelUV = hasValue, Brush Lerp pixelUV " + pix);
+
+                BrushWashing(pix);
             }
         }
+        else
+        {
+            Debug.Log("lastPixelUV = noValue, Brush pixelUV = " + pixelUV);
+
+            BrushWashing(pixelUV);
+        }
+
+        lastPixelUV = pixelUV;
+        runtimeMask.Apply();    //optimize drawing into the masking texture just once per frame
     }
 
     /// <summary>
@@ -110,6 +142,5 @@ public class CleaningManager : MonoBehaviour
                 }
             }
         }
-        runtimeMask.Apply();
     }
 }
