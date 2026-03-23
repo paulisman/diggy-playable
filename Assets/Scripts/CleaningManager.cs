@@ -47,7 +47,7 @@ public class CleaningManager : MonoBehaviour
         runtimeMask.SetPixels(baseMask.GetPixels());
         runtimeMask.Apply();
 
-        interpolationStepSize = brushSize / runtimeMask.width * 0.5f;   //half a brush radius per drawing area is considered optimal for UV interpolation
+        interpolationStepSize = (float)brushSize / runtimeMask.width * 0.5f;   //half of a brush radius per drawing area is considered optimal for UV interpolation
 
         objectMaterial.SetFloat("_DirtIntensity", Mathf.Sqrt(currentDirt));
         objectMaterial.SetTexture("_MaskTexture", runtimeMask);
@@ -76,21 +76,23 @@ public class CleaningManager : MonoBehaviour
         if (lastPixelUV.HasValue)
         {
             float distInterpolation = Vector2.Distance(lastPixelUV.Value, pixelUV);
-            int stepsInterpolation = Mathf.Max(1, Mathf.CeilToInt(distInterpolation / interpolationStepSize));  //prevent to be 0, because of dividing by zero later
 
-            for (int i = 0; i <= stepsInterpolation; i++)
+            if (distInterpolation > 0.1f)   //[condition placed because our messy and highly fragmented UV map as an output from AI graphic tools!]
             {
-                Vector2 pix = Vector2.Lerp(lastPixelUV.Value, pixelUV, (float)i / stepsInterpolation);
+                BrushWashing(pixelUV);
+            }
+            else
+            {
+                int stepsInterpolation = Mathf.Max(1, Mathf.CeilToInt(distInterpolation / interpolationStepSize));  //prevent to be 0, because of dividing by zero later
 
-                Debug.Log("lastPixelUV = hasValue, Brush Lerp pixelUV " + pix);
-
-                BrushWashing(pix);
+                for (int i = 0; i <= stepsInterpolation; i++)
+                {
+                    BrushWashing(Vector2.Lerp(lastPixelUV.Value, pixelUV, (float)i / stepsInterpolation));
+                }
             }
         }
         else
         {
-            Debug.Log("lastPixelUV = noValue, Brush pixelUV = " + pixelUV);
-
             BrushWashing(pixelUV);
         }
 
@@ -99,7 +101,7 @@ public class CleaningManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Decrease the amount of dirt from object material. Reference _DirtIntensity is float value in interval 0 - 1 in ShaderGraph.
+    /// Initiate global cleaning step - decrease the amount of dirt from object material. Reference _DirtIntensity is float value in interval 0 - 1 in ShaderGraph.
     /// </summary>
     void DecreaseDirt()
     {
@@ -122,6 +124,10 @@ public class CleaningManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initiate brush washing step - washing the dirt locally by masking with black and white masking texture. Reference _MaskTexture is the white image in ShaderGraph, set at the Start.
+    /// </summary>
+    /// <param name="pixelUV">UV coordinates of the map to be washed.</param>
     void BrushWashing(Vector2 pixelUV)
     {
         //multiply relative distance of hit UV coordinates of the texture with its dimensions

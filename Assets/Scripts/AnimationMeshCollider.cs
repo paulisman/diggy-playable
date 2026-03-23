@@ -13,10 +13,10 @@ public class AnimationMeshCollider : MonoBehaviour
 
     void Update()
     {
-        if (skinnedMeshRenderer != null && meshCollider != null)
+        if ((skinnedMeshRenderer != null) && (meshCollider != null))
         {
             skinnedMeshRenderer.BakeMesh(bakedMesh);
-            meshCollider.sharedMesh = bakedMesh;
+            meshCollider.sharedMesh = bakedMesh;    //provide the mesh to "animate" (redraw in each frame)
         }
     }
 }
