@@ -30,7 +30,7 @@ public class CleaningManager : MonoBehaviour
     /// <summary>
     /// The radius of the round brush for washing.
     /// </summary>
-    [Range(1, 30)]
+    [Range(1, 50)]
     public int brushSize = 10;
 
     private Texture2D runtimeMask;
@@ -43,7 +43,7 @@ public class CleaningManager : MonoBehaviour
     {
         objectAnimator = GetComponentInParent<Animator>();
 
-        runtimeMask = new Texture2D(baseMask.width, baseMask.height);
+        runtimeMask = new Texture2D(baseMask.width, baseMask.height, TextureFormat.R8, false);
         runtimeMask.SetPixels(baseMask.GetPixels());
         runtimeMask.Apply();
 
@@ -105,23 +105,15 @@ public class CleaningManager : MonoBehaviour
     /// </summary>
     void DecreaseDirt()
     {
-        if (currentDirt > 0)
+        if ((!wasTurned) && (currentDirt < 0.5))
         {
-            if ((!wasTurned) && (currentDirt < 0.5))
-            {
-                wasTurned = true;
-                objectAnimator.SetTrigger("doTurn");
-            }
-            currentDirt -= Time.deltaTime * (cleaningSpeed / 10);
-            currentDirt = Mathf.Clamp01(currentDirt);
+            wasTurned = true;
+            objectAnimator.SetTrigger("doTurn");
+        }
+        currentDirt -= Time.deltaTime * (cleaningSpeed / 10);
+        currentDirt = Mathf.Clamp01(currentDirt);
 
-            objectMaterial.SetFloat("_DirtIntensity", Mathf.Sqrt(currentDirt));
-        }
-        else
-        {
-            // TRIGGER SUCCESS ANIMÁCIE
-            Debug.Log("VYCISTENE!");
-        }
+        objectMaterial.SetFloat("_DirtIntensity", Mathf.Sqrt(currentDirt));
     }
 
     /// <summary>
@@ -148,5 +140,39 @@ public class CleaningManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// End of the game - typically when the time is up.
+    /// </summary>
+    public void EndGame()
+    {
+        Debug.Log(GetWashingState());
+
+        if (GetWashingState() < 0.5f)
+        {
+            objectAnimator.SetTrigger("doSucces");
+        }
+        else
+        {
+            objectAnimator.SetTrigger("doFail");
+        }
+    }
+
+    public float GetWashingState()
+    {
+        Color32[] pixels = runtimeMask.GetPixels32();
+        int totalPixels = pixels.Length;
+        int whitePixels = 0;
+
+        for (int i = 0; i < totalPixels; i++)
+        {
+            if (pixels[i].r > 128)
+            {
+                whitePixels++;
+            }
+        }
+
+        return (float)whitePixels / totalPixels;
     }
 }

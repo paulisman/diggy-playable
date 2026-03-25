@@ -86,7 +86,7 @@ MonoBehaviour:
   currentDirt: 1
   cleaningSpeed: 0.5
   baseMask: {fileID: 2800000, guid: 8aa74631f2095d04e828db12fcc5dd6a, type: 3}
-  brushSize: 8
+  brushSize: 10
 --- !u!1001 &1395357639174320618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tripo_convert_9c5a64e1-f63d-4611-be09-75621e6b717b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57278805f1270384590b2986c0e623bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -184,7 +188,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
-  m_CookingOptions: 30
+  m_CookingOptions: -1
   m_Mesh: {fileID: 8778579214235354717, guid: 57278805f1270384590b2986c0e623bb, type: 3}
 --- !u!114 &1201122753408270596
 MonoBehaviour:
@@ -200,9 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CleaningManager
   objectMaterial: {fileID: 2100000, guid: 4e79dbe616f7e9348a4d54b45f818068, type: 2}
   currentDirt: 1
-  cleaningSpeed: 0.5
+  cleaningSpeed: 1.5
   baseMask: {fileID: 2800000, guid: 8aa74631f2095d04e828db12fcc5dd6a, type: 3}
-  brushSize: 20
+  brushSize: 25
 --- !u!1001 &7120547632957468295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,15 +256,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5668046463596795321, guid: b2944c8ad23853f4d96c85c8d14faa38, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5668046463596795321, guid: b2944c8ad23853f4d96c85c8d14faa38, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5668046463596795321, guid: b2944c8ad23853f4d96c85c8d14faa38, type: 3}
-      propertyPath: m_LocalPosition.z
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2944c8ad23853f4d96c85c8d14faa38, type: 3}
