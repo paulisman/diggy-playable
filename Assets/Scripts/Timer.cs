@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -7,17 +8,23 @@ public class Timer : MonoBehaviour
     /// Total time in seconds.
     /// </summary>
     [Range(1, 60)]
-    public float timeRemaining = 20f;
+    public float timeRemaining = 25f;
 
     /// <summary>
     /// Flag if the timer is running.
     /// </summary>
     public bool timerIsRunning = false;
 
+    [Header("UI elements")]
     /// <summary>
     /// UI element displaying remaining time.
     /// </summary>
     public TextMeshProUGUI timerText;
+
+    /// <summary>
+    /// UI element of restart game button.
+    /// </summary>
+    public Button restartButton;
 
     /// <summary>
     /// Main cleaning manager script instance.
@@ -27,6 +34,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timerIsRunning = true;
+        restartButton.gameObject.SetActive(false);
     }
 
     void Update()
@@ -46,7 +54,11 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            cleaningManager.EndGame();
+            if (timerIsRunning)
+            {
+                cleaningManager.EndGame(restartButton);
+            }
+            timerIsRunning = false;
         }
     }
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CleaningManager : MonoBehaviour
 {
@@ -7,6 +9,11 @@ public class CleaningManager : MonoBehaviour
     /// The material (with associated ShaderGraph) of the object to be cleaned.
     /// </summary>
     public Material objectMaterial;
+
+    /// <summary>
+    /// GameObjects to be hidden in the end game animation.
+    /// </summary>
+    public GameObject[] hiddenInEndGameAnimationObjects;
 
     [Header("Global cleaning")]
     /// <summary>
@@ -32,6 +39,11 @@ public class CleaningManager : MonoBehaviour
     /// </summary>
     [Range(1, 50)]
     public int brushSize = 10;
+
+    [Header("Sound effects")]
+    public AudioSource characterAudioSource;
+    public AudioClip successSound;
+    public AudioClip failSound;
 
     private Texture2D runtimeMask;
     private Animator objectAnimator;
@@ -60,7 +72,7 @@ public class CleaningManager : MonoBehaviour
             lastPixelUV = null;
             return; //reset last pixel UV, because input is not pressed
         }
-        
+
         Ray ray = Camera.main.ScreenPointToRay(Pointer.current.position.ReadValue());
 
         if (!Physics.Raycast(ray, out RaycastHit hitInfo) || (hitInfo.collider.gameObject != this.gameObject))
@@ -105,7 +117,7 @@ public class CleaningManager : MonoBehaviour
     /// </summary>
     void DecreaseDirt()
     {
-        if ((!wasTurned) && (currentDirt < 0.5))
+        if ((!wasTurned) && (currentDirt < 0.65))
         {
             wasTurned = true;
             objectAnimator.SetTrigger("doTurn");
@@ -145,18 +157,27 @@ public class CleaningManager : MonoBehaviour
     /// <summary>
     /// End of the game - typically when the time is up.
     /// </summary>
-    public void EndGame()
+    public void EndGame(Button restartButton)
     {
-        Debug.Log(GetWashingState());
+        //Debug.Log(GetWashingState());
+
+        for (int i = 0; i < hiddenInEndGameAnimationObjects.Length; i++)
+        {
+            hiddenInEndGameAnimationObjects[i].SetActive(false);
+        }
 
         if (GetWashingState() < 0.5f)
         {
-            objectAnimator.SetTrigger("doSucces");
+            objectAnimator.SetTrigger("doSuccess");
+            characterAudioSource.PlayOneShot(successSound);
         }
         else
         {
             objectAnimator.SetTrigger("doFail");
+            characterAudioSource.PlayOneShot(failSound);
         }
+
+        restartButton.gameObject.SetActive(true);
     }
 
     public float GetWashingState()
@@ -174,5 +195,11 @@ public class CleaningManager : MonoBehaviour
         }
 
         return (float)whitePixels / totalPixels;
+    }
+
+    public void RestartGame()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex);
     }
 }
