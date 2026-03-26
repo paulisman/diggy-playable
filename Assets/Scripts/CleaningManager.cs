@@ -184,7 +184,7 @@ public class CleaningManager : MonoBehaviour
             hiddenInEndGameAnimationObjects[i].SetActive(false);
         }
 
-        if (GetWashingState() < 0.5f)
+        if (GetWashingState() < 0.6f)
         {
             objectAnimator.SetTrigger("doSuccess");
             characterAudioSource.PlayOneShot(successSound);

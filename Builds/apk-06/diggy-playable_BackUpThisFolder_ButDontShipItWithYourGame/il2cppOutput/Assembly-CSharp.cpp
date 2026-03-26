@@ -3188,7 +3188,7 @@ IL_0016:
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:187>
 		float L_7;
 		L_7 = CleaningManager_GetWashingState_mD4ABA60BE3445779186E83DF8C8CD20576BA8550(__this, NULL);
-		if ((!(((float)L_7) < ((float)(0.5f)))))
+		if ((!(((float)L_7) < ((float)(0.600000024f)))))
 		{
 			goto IL_0069;
 		}
