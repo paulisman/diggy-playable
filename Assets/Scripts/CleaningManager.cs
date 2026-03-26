@@ -45,11 +45,15 @@ public class CleaningManager : MonoBehaviour
     public AudioClip successSound;
     public AudioClip failSound;
 
+    [Header("Visual effects")]
+    public ParticleSystem confettiParticleSystem;
+
     private Texture2D runtimeMask;
     private Animator objectAnimator;
     private bool wasTurned = false;
     private Vector2? lastPixelUV = null;
     private float interpolationStepSize;
+    private GameObject tutorialAnimationObject;
 
     private void Start()
     {
@@ -79,6 +83,11 @@ public class CleaningManager : MonoBehaviour
         {
             lastPixelUV = null;
             return; //reset last pixel UV, because ray is out of the collider
+        }
+
+        if ((tutorialAnimationObject != null) && (tutorialAnimationObject.activeSelf))
+        {
+            tutorialAnimationObject.SetActive(false);
         }
 
         DecreaseDirt();
@@ -155,6 +164,15 @@ public class CleaningManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Start of the game - typically when tutorial is done.
+    /// </summary>
+    public void StartGame(Image tutorialAnimation)
+    {
+        tutorialAnimationObject = tutorialAnimation.gameObject;
+        tutorialAnimationObject.SetActive(true);
+    }
+
+    /// <summary>
     /// End of the game - typically when the time is up.
     /// </summary>
     public void EndGame(Button restartButton)
@@ -170,6 +188,10 @@ public class CleaningManager : MonoBehaviour
         {
             objectAnimator.SetTrigger("doSuccess");
             characterAudioSource.PlayOneShot(successSound);
+            if (!confettiParticleSystem.isPlaying)
+            {
+                confettiParticleSystem.Play();
+            }
         }
         else
         {

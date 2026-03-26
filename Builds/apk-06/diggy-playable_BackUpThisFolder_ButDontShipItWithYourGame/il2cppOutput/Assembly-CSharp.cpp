@@ -37,6 +37,7 @@ struct InputProcessor_1_tFE49B42CB371A9A2A3F29802695BD251947AD0B4;
 struct InputProcessor_1_tD1A40E0E5825AAABC3416EC96E087FF6E6351DD2;
 struct List_1_tFED1C27AA4B8AC9813FF4858B3ABB1B3F74558EF;
 struct List_1_t2CDCA768E7F493F5EDEBC75AEB200FD621354E35;
+struct List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19;
 struct List_1_t3A076A19AF26E22A128C32B5C19804DDD2877607;
 struct TweenRunner_1_t5BB0582F926E75E2FE795492679A6CF55A4B4BC4;
 struct InputProcessor_1U5BU5D_tFEE411B67EEAA6B997AF875A65D072993C8C809C;
@@ -57,6 +58,7 @@ struct InternedStringU5BU5D_t0B851758733FC0B118D84BE83AED10A0404C18D5;
 struct MaterialU5BU5D_t2B1D11C42DB07A4400C0535F92DBB87A2E346D3D;
 struct MaterialReferenceU5BU5D_t7491D335AB3E3E13CE9C0F5E931F396F6A02E1F2;
 struct RichTextTagAttributeU5BU5D_t5816316EFD8F59DBC30B9F88E15828C564E47B6D;
+struct SecondarySpriteTextureU5BU5D_tC322D73EA4B9A8B747013A3584DEFEAFC0D87192;
 struct SelectableU5BU5D_t4160E135F02A40F75A63F787D36F31FEC6FE91A9;
 struct SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C;
 struct TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99;
@@ -90,6 +92,7 @@ struct DeltaControl_t63053AF5E0CD02B62F3CDE79821E4A12F72D573B;
 struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F;
 struct Graphic_tCBFCA4585A19E2B75465AECFEAC43F4016BF7931;
 struct ITextPreprocessor_tDBB49C8B68D7B80E8D233B9D9666C43981EFAAB9;
+struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E;
 struct InputDevice_t8BCF67533E872A75779C24C93D1D7085B72D364B;
 struct IntegerControl_tA24544EFF42204852F638FF5147F754962C997AB;
 struct LayoutElement_tB1F24CC11AF4AA87015C8D8EE06D22349C5BF40A;
@@ -786,6 +789,14 @@ struct VerticalAlignmentOptions_tCEF70AF60282B71AEEE14D51253CE6A61E72D855
 	int32_t ___value__;
 };
 struct Clamp_tCB96E8D34067B0DCBED42C565F4443DF880DD284 
+{
+	int32_t ___value__;
+};
+struct FillMethod_t36837ED12068DF1582CC20489D571B0BCAA7AD19 
+{
+	int32_t ___value__;
+};
+struct Type_t81D6F138C2FC745112D5247CD91BD483EDFFC041 
 {
 	int32_t ___value__;
 };
@@ -1775,11 +1786,13 @@ struct CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527  : public MonoB
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___characterAudioSource;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___successSound;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___failSound;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___confettiParticleSystem;
 	Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* ___runtimeMask;
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___objectAnimator;
 	bool ___wasTurned;
 	Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD ___lastPixelUV;
 	float ___interpolationStepSize;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tutorialAnimationObject;
 };
 struct Pointer_t800EF2832B62E889AC9C182E3B18098AF220E32A  : public InputDevice_t8BCF67533E872A75779C24C93D1D7085B72D364B
 {
@@ -1796,6 +1809,7 @@ struct Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20  : public MonoBehaviour_t
 	bool ___timerIsRunning;
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___timerText;
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___restartButton;
+	Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___tutorialAnimation;
 	CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* ___cleaningManager;
 };
 struct UIBehaviour_tB9D4295827BD2EEDEF0749200C6CA7090C742A9D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -1812,11 +1826,11 @@ struct WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04  : public MonoBeha
 	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___waterStream;
 	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___splashParticles;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___waterAudioSource;
-	int32_t ___segmentCount;
+	int32_t ___waterSegments;
 	float ___waterVelocity;
 	float ___streamDistance;
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___waterMaterial;
-	float ___currentOffset;
+	float ___verticalCalibration;
+	float ___currentMaterialOffset;
 };
 struct ButtonControl_t85949109B98AAF5B7ADC0285F0EC98A61EC88ECF  : public AxisControl_tD6613A2445A3C2BFA22C77E16CA3201AF72354A7
 {
@@ -1882,6 +1896,24 @@ struct MaskableGraphic_tFC5B6BE351C90DE53744DF2A70940242774B361E  : public Graph
 	bool ___m_ShouldRecalculate;
 	int32_t ___m_StencilValue;
 	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___m_Corners;
+};
+struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E  : public MaskableGraphic_tFC5B6BE351C90DE53744DF2A70940242774B361E
+{
+	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___m_Sprite;
+	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___m_OverrideSprite;
+	int32_t ___m_Type;
+	bool ___m_PreserveAspect;
+	bool ___m_FillCenter;
+	int32_t ___m_FillMethod;
+	float ___m_FillAmount;
+	bool ___m_FillClockwise;
+	int32_t ___m_FillOrigin;
+	float ___m_AlphaHitTestMinimumThreshold;
+	bool ___m_Tracked;
+	bool ___m_UseSpriteMesh;
+	float ___m_PixelsPerUnitMultiplier;
+	float ___m_CachedReferencePixelsPerUnit;
+	SecondarySpriteTextureU5BU5D_tC322D73EA4B9A8B747013A3584DEFEAFC0D87192* ___m_SecondaryTextures;
 };
 struct TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9  : public MaskableGraphic_tFC5B6BE351C90DE53744DF2A70940242774B361E
 {
@@ -2196,6 +2228,17 @@ struct ButtonControl_t85949109B98AAF5B7ADC0285F0EC98A61EC88ECF_StaticFields
 	float ___s_GlobalDefaultButtonPressPoint;
 	float ___s_GlobalDefaultButtonReleaseThreshold;
 };
+struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_StaticFields
+{
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___s_ETC1DefaultUI;
+	SecondarySpriteTextureU5BU5D_tC322D73EA4B9A8B747013A3584DEFEAFC0D87192* ___s_TempNewSecondaryTextures;
+	Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* ___s_VertScratch;
+	Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* ___s_UVScratch;
+	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___s_Xy;
+	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* ___s_Uv;
+	List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19* ___m_TrackedTexturelessImages;
+	bool ___s_Initialized;
+};
 struct TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_StaticFields
 {
 	MaterialReferenceU5BU5D_t7491D335AB3E3E13CE9C0F5E931F396F6A02E1F2* ___m_materialReferences;
@@ -2417,6 +2460,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Physics_Raycast_mCAC9F02A1AAB49E16B384EBC8318E2DF30F4B0E5 (Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00 ___0_ray, RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* ___1_hitInfo, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* RaycastHit_get_collider_m84B160439BBEAB6D9E94B799F720E25C9E2D444D (RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GameObject_get_activeSelf_m4F3E5240E138B66AAA080EA30759A3D0517DA368 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_DecreaseDirt_m5CF4EB76DA64FA4C9F3B7A62A95781E236A16ABE (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 RaycastHit_get_textureCoord_m71F12781E6A806033B42B2D6D1D42DDA2069FE6D (RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* __this, const RuntimeMethod* method) ;
 inline bool Nullable_1_get_HasValue_m2E9343B9161EB12C0123A2A9801D2BD86422CEEB_inline (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* __this, const RuntimeMethod* method)
@@ -2442,26 +2487,27 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_Clamp01_mA7E048DBDA83
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t Mathf_Clamp_m4DC36EEFDBE5F07C16249DA568023C5ECCFF0E7B_inline (int32_t ___0_value, int32_t ___1_min, int32_t ___2_max, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Texture2D_SetPixel_m2CCFC5F729135D59DC4A697C2605A3FC5C8574DB (Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* __this, int32_t ___0_x, int32_t ___1_y, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_color, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CleaningManager_GetWashingState_mD4ABA60BE3445779186E83DF8C8CD20576BA8550 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_PlayOneShot_m098BCAE084AABB128BB19ED805D2D985E7B75112 (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___0_clip, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B (ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5 (ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* Texture2D_GetPixels32_m48230192E7543765C1A517F251D1D9BFCFB58C3D (Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scene_tA1DC762B79745EB5140F054C884855B922318356 SceneManager_GetActiveScene_m0B320EC4302F51A71495D1CCD1A0FF9C2ED1FDC8 (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E (Scene_tA1DC762B79745EB5140F054C884855B922318356* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_m0957E62F2A0A0243C79394E5B74E8EFA86BE5ED1 (int32_t ___0_sceneBuildIndex, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_StartGame_m36B352BE8689B2294D3CA00E44936988165E32C5 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___0_tutorialAnimation, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t Mathf_FloorToInt_m2A39AE881CAEE6B6A4B3BFEF9CA1ED40625F5AB7_inline (float ___0_f, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5 (int32_t* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline (String_t* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m9E3155FB84015C823606188F53B47CB44C444991 (String_t* ___0_str0, String_t* ___1_str1, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B (String_t* ___0_str0, String_t* ___1_str1, String_t* ___2_str2, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_EndGame_mC30F2FA7DEF0E87857754DB96BBCFC92F0A0F659 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___0_restartButton, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B954490165A4F88C68DC2C3FABFCC34A10A2E28 (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateWaterStream_mEBF9F21263BEB4ED2FA876C90DF80002A653A746 (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AudioSource_get_isPlaying_mC203303F2F7146B2C056CB47B9391463FDF408FC (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3 (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205 (LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m2D8D4967496EF0F5BFEF679C49A9E65A9646C423 (ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_Stop_m318F17F17A147C77FF6E0A5A7A6BE057DB90F537 (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8 (Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39 (RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Ray_get_origin_m97604A8F180316A410DCD77B7D74D04522FA1BA6_inline (Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Ray_get_direction_m21C2D22D3BD4A683BD4DC191AB22DD05F5EC2086_inline (Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00* __this, const RuntimeMethod* method) ;
@@ -2488,8 +2534,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LineRenderer_SetPosition_m84C4AD9ADC6AC6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 LineRenderer_GetPosition_m697105EEB72E687ECC0ECD9E66105F9BF2EF6C4F (LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Physics_Linecast_m4F2A0744FE106002EE26D12B6137FC21C019B932 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_start, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_end, RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* ___2_hitInfo, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5 (RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B (ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5 (ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScriptableObject__ctor_mD037FDB0B487295EA47F79A4DB1BF1846C9087FF (ScriptableObject_tB3BFDB921A1B1795B38A5417D3B97A89A140436A* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeHelpers_InitializeArray_m751372AA3F24FBF6DA9B9D687CBFA2DE436CAB9B (RuntimeArray* ___0_array, RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 ___1_fldHandle, const RuntimeMethod* method) ;
@@ -2607,12 +2651,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_Start_mEBBF49947BD6B0AE9
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:56>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:60>
 		Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* L_0;
 		L_0 = Component_GetComponentInParent_TisAnimator_t8A52E42AE54F76681838FE9E632683EF3952E883_m8227A2F38BB57AE0669709774CDC4380CD7FC788(__this, Component_GetComponentInParent_TisAnimator_t8A52E42AE54F76681838FE9E632683EF3952E883_m8227A2F38BB57AE0669709774CDC4380CD7FC788_RuntimeMethod_var);
 		__this->___objectAnimator = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___objectAnimator), (void*)L_0);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:58>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:62>
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_1 = __this->___baseMask;
 		NullCheck(L_1);
 		int32_t L_2;
@@ -2625,7 +2669,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_Start_mEBBF49947BD6B0AE9
 		Texture2D__ctor_mECF60A9EC0638EC353C02C8E99B6B465D23BE917(L_5, L_2, L_4, ((int32_t)63), (bool)0, NULL);
 		__this->___runtimeMask = L_5;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___runtimeMask), (void*)L_5);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:59>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:63>
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_6 = __this->___runtimeMask;
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_7 = __this->___baseMask;
 		NullCheck(L_7);
@@ -2633,30 +2677,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_Start_mEBBF49947BD6B0AE9
 		L_8 = Texture2D_GetPixels_m77A00D71DF5CDC7DAA0EE66FF2C90A24C7604039(L_7, NULL);
 		NullCheck(L_6);
 		Texture2D_SetPixels_mAE0CDFA15FA96F840D7FFADC31405D8AF20D9073(L_6, L_8, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:60>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:64>
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_9 = __this->___runtimeMask;
 		NullCheck(L_9);
 		Texture2D_Apply_mA014182C9EE0BBF6EEE3B286854F29E50EB972DC(L_9, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:62>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:66>
 		int32_t L_10 = __this->___brushSize;
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_11 = __this->___runtimeMask;
 		NullCheck(L_11);
 		int32_t L_12;
 		L_12 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_11);
 		__this->___interpolationStepSize = ((float)il2cpp_codegen_multiply(((float)(((float)L_10)/((float)L_12))), (0.5f)));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:64>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:68>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___objectMaterial;
 		float L_14 = __this->___currentDirt;
 		float L_15;
 		L_15 = sqrtf(L_14);
 		NullCheck(L_13);
 		Material_SetFloat_m879CF81D740BAE6F23C9822400679F4D16365836(L_13, _stringLiteralEF5FE7D4B99BF431D7E0B7A2E8AE5338F41EA9A1, L_15, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:65>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:69>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_16 = __this->___objectMaterial;
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_17 = __this->___runtimeMask;
 		NullCheck(L_16);
 		Material_SetTexture_m06083C3F52EF02FFB1177901D9907314F280F9A5(L_16, _stringLiteralBB2ED7F20376FBEB6F53E15F9D67658D0E6B8478, L_17, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:66>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:70>
 		return;
 	}
 }
@@ -2682,7 +2726,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_Update_mD7D051EC1E64C818
 	int32_t V_3 = 0;
 	int32_t V_4 = 0;
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:70>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:74>
 		Pointer_t800EF2832B62E889AC9C182E3B18098AF220E32A* L_0;
 		L_0 = Pointer_get_current_m207443803344C305DEAAEBA56C445980D6C22CB3_inline(NULL);
 		NullCheck(L_0);
@@ -2697,16 +2741,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_Update_mD7D051EC1E64C818
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:72>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:76>
 		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_3 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
 		il2cpp_codegen_initobj(L_3, sizeof(Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:73>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:77>
 		return;
 	}
 
 IL_001e:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:76>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:80>
 		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_4;
 		L_4 = Camera_get_main_m52C992F18E05355ABB9EEB64A4BF2215E12762DF(NULL);
 		Pointer_t800EF2832B62E889AC9C182E3B18098AF220E32A* L_5;
@@ -2722,7 +2766,7 @@ IL_001e:
 		NullCheck(L_4);
 		Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00 L_9;
 		L_9 = Camera_ScreenPointToRay_m2887B9A49880B7AB670C57D66B67D6A6689FE315(L_4, L_8, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:78>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:82>
 		il2cpp_codegen_runtime_class_init_inline(Physics_t1244C2983AEAFA149425AFFC3DF53BC91C18ED56_il2cpp_TypeInfo_var);
 		bool L_10;
 		L_10 = Physics_Raycast_mCAC9F02A1AAB49E16B384EBC8318E2DF30F4B0E5(L_9, (&V_0), NULL);
@@ -2750,119 +2794,148 @@ IL_001e:
 
 IL_005e:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:80>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:84>
 		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_15 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
 		il2cpp_codegen_initobj(L_15, sizeof(Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:81>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:85>
 		return;
 	}
 
 IL_006b:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:84>
-		CleaningManager_DecreaseDirt_m5CF4EB76DA64FA4C9F3B7A62A95781E236A16ABE(__this, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:86>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_16;
-		L_16 = RaycastHit_get_textureCoord_m71F12781E6A806033B42B2D6D1D42DDA2069FE6D((&V_0), NULL);
-		V_1 = L_16;
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:88>
-		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_17 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
-		bool L_18;
-		L_18 = Nullable_1_get_HasValue_m2E9343B9161EB12C0123A2A9801D2BD86422CEEB_inline(L_17, Nullable_1_get_HasValue_m2E9343B9161EB12C0123A2A9801D2BD86422CEEB_RuntimeMethod_var);
-		if (!L_18)
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_16 = __this->___tutorialAnimationObject;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_17;
+		L_17 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_16, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_17)
 		{
-			goto IL_00ec;
+			goto IL_0092;
+		}
+	}
+	{
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_18 = __this->___tutorialAnimationObject;
+		NullCheck(L_18);
+		bool L_19;
+		L_19 = GameObject_get_activeSelf_m4F3E5240E138B66AAA080EA30759A3D0517DA368(L_18, NULL);
+		if (!L_19)
+		{
+			goto IL_0092;
 		}
 	}
 	{
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:90>
-		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_19 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_20;
-		L_20 = Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7(L_19, Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7_RuntimeMethod_var);
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_21 = V_1;
-		float L_22;
-		L_22 = Vector2_Distance_mBACBB1609E1894D68F882D86A93519E311810C89_inline(L_20, L_21, NULL);
-		V_2 = L_22;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:92>
-		float L_23 = V_2;
-		if ((!(((float)L_23) > ((float)(0.100000001f)))))
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_20 = __this->___tutorialAnimationObject;
+		NullCheck(L_20);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_20, (bool)0, NULL);
+	}
+
+IL_0092:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:93>
+		CleaningManager_DecreaseDirt_m5CF4EB76DA64FA4C9F3B7A62A95781E236A16ABE(__this, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:95>
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_21;
+		L_21 = RaycastHit_get_textureCoord_m71F12781E6A806033B42B2D6D1D42DDA2069FE6D((&V_0), NULL);
+		V_1 = L_21;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:97>
+		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_22 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
+		bool L_23;
+		L_23 = Nullable_1_get_HasValue_m2E9343B9161EB12C0123A2A9801D2BD86422CEEB_inline(L_22, Nullable_1_get_HasValue_m2E9343B9161EB12C0123A2A9801D2BD86422CEEB_RuntimeMethod_var);
+		if (!L_23)
 		{
-			goto IL_00a9;
+			goto IL_0113;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:94>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_24 = V_1;
-		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_24, NULL);
-		goto IL_00f3;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:99>
+		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_24 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_25;
+		L_25 = Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7(L_24, Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7_RuntimeMethod_var);
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_26 = V_1;
+		float L_27;
+		L_27 = Vector2_Distance_mBACBB1609E1894D68F882D86A93519E311810C89_inline(L_25, L_26, NULL);
+		V_2 = L_27;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:101>
+		float L_28 = V_2;
+		if ((!(((float)L_28) > ((float)(0.100000001f)))))
+		{
+			goto IL_00d0;
+		}
+	}
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:103>
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_29 = V_1;
+		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_29, NULL);
+		goto IL_011a;
 	}
 
-IL_00a9:
+IL_00d0:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:98>
-		float L_25 = V_2;
-		float L_26 = __this->___interpolationStepSize;
-		int32_t L_27;
-		L_27 = Mathf_CeilToInt_mF2BF9F4261B3431DC20E10A46CFEEED103C48963_inline(((float)(L_25/L_26)), NULL);
-		int32_t L_28;
-		L_28 = Mathf_Max_m7FA442918DE37E3A00106D1F2E789D65829792B8_inline(1, L_27, NULL);
-		V_3 = L_28;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:100>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:107>
+		float L_30 = V_2;
+		float L_31 = __this->___interpolationStepSize;
+		int32_t L_32;
+		L_32 = Mathf_CeilToInt_mF2BF9F4261B3431DC20E10A46CFEEED103C48963_inline(((float)(L_30/L_31)), NULL);
+		int32_t L_33;
+		L_33 = Mathf_Max_m7FA442918DE37E3A00106D1F2E789D65829792B8_inline(1, L_32, NULL);
+		V_3 = L_33;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:109>
 		V_4 = 0;
-		goto IL_00e5;
+		goto IL_010c;
 	}
 
-IL_00c2:
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:102>
-		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_29 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_30;
-		L_30 = Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7(L_29, Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7_RuntimeMethod_var);
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_31 = V_1;
-		int32_t L_32 = V_4;
-		int32_t L_33 = V_3;
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_34;
-		L_34 = Vector2_Lerp_m1A36103F7967F653A929556E26E6D052C298C00C_inline(L_30, L_31, ((float)(((float)L_32)/((float)L_33))), NULL);
-		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_34, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:100>
-		int32_t L_35 = V_4;
-		V_4 = ((int32_t)il2cpp_codegen_add(L_35, 1));
-	}
-
-IL_00e5:
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:100>
-		int32_t L_36 = V_4;
-		int32_t L_37 = V_3;
-		if ((((int32_t)L_36) <= ((int32_t)L_37)))
-		{
-			goto IL_00c2;
-		}
-	}
-	{
-		goto IL_00f3;
-	}
-
-IL_00ec:
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:108>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_38 = V_1;
-		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_38, NULL);
-	}
-
-IL_00f3:
+IL_00e9:
 	{
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:111>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_39 = V_1;
-		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD L_40;
-		memset((&L_40), 0, sizeof(L_40));
-		Nullable_1__ctor_m5B4AD6C29FA5950EF6C215B9A459707DCC95EF73((&L_40), L_39, Nullable_1__ctor_m5B4AD6C29FA5950EF6C215B9A459707DCC95EF73_RuntimeMethod_var);
-		__this->___lastPixelUV = L_40;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:112>
-		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_41 = __this->___runtimeMask;
-		NullCheck(L_41);
-		Texture2D_Apply_mA014182C9EE0BBF6EEE3B286854F29E50EB972DC(L_41, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:113>
+		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD* L_34 = (Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD*)(&__this->___lastPixelUV);
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_35;
+		L_35 = Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7(L_34, Nullable_1_get_Value_m47B6E93739E8A6B3D44D7C08DC7D385D35F0D1F7_RuntimeMethod_var);
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_36 = V_1;
+		int32_t L_37 = V_4;
+		int32_t L_38 = V_3;
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_39;
+		L_39 = Vector2_Lerp_m1A36103F7967F653A929556E26E6D052C298C00C_inline(L_35, L_36, ((float)(((float)L_37)/((float)L_38))), NULL);
+		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_39, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:109>
+		int32_t L_40 = V_4;
+		V_4 = ((int32_t)il2cpp_codegen_add(L_40, 1));
+	}
+
+IL_010c:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:109>
+		int32_t L_41 = V_4;
+		int32_t L_42 = V_3;
+		if ((((int32_t)L_41) <= ((int32_t)L_42)))
+		{
+			goto IL_00e9;
+		}
+	}
+	{
+		goto IL_011a;
+	}
+
+IL_0113:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:117>
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_43 = V_1;
+		CleaningManager_BrushWashing_m47D114E86CE1CE073FBE888CB20A3DAE9324EE78(__this, L_43, NULL);
+	}
+
+IL_011a:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:120>
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_44 = V_1;
+		Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD L_45;
+		memset((&L_45), 0, sizeof(L_45));
+		Nullable_1__ctor_m5B4AD6C29FA5950EF6C215B9A459707DCC95EF73((&L_45), L_44, Nullable_1__ctor_m5B4AD6C29FA5950EF6C215B9A459707DCC95EF73_RuntimeMethod_var);
+		__this->___lastPixelUV = L_45;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:121>
+		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_46 = __this->___runtimeMask;
+		NullCheck(L_46);
+		Texture2D_Apply_mA014182C9EE0BBF6EEE3B286854F29E50EB972DC(L_46, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:122>
 		return;
 	}
 }
@@ -2877,7 +2950,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_DecreaseDirt_m5CF4EB76DA
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:120>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:129>
 		bool L_0 = __this->___wasTurned;
 		if (L_0)
 		{
@@ -2892,9 +2965,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_DecreaseDirt_m5CF4EB76DA
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:122>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:131>
 		__this->___wasTurned = (bool)1;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:123>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:132>
 		Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* L_2 = __this->___objectAnimator;
 		NullCheck(L_2);
 		Animator_SetTrigger_mC9CD54D627C8843EF6E159E167449D216EF6EB30(L_2, _stringLiteralDAE49FF49C258925028127FCF93260723CDF3CD9, NULL);
@@ -2902,25 +2975,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_DecreaseDirt_m5CF4EB76DA
 
 IL_0031:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:125>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:134>
 		float L_3 = __this->___currentDirt;
 		float L_4;
 		L_4 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
 		float L_5 = __this->___cleaningSpeed;
 		__this->___currentDirt = ((float)il2cpp_codegen_subtract(L_3, ((float)il2cpp_codegen_multiply(L_4, ((float)(L_5/(10.0f)))))));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:126>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:135>
 		float L_6 = __this->___currentDirt;
 		float L_7;
 		L_7 = Mathf_Clamp01_mA7E048DBDA832D399A581BE4D6DED9FA44CE0F14_inline(L_6, NULL);
 		__this->___currentDirt = L_7;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:128>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:137>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_8 = __this->___objectMaterial;
 		float L_9 = __this->___currentDirt;
 		float L_10;
 		L_10 = sqrtf(L_9);
 		NullCheck(L_8);
 		Material_SetFloat_m879CF81D740BAE6F23C9822400679F4D16365836(L_8, _stringLiteralEF5FE7D4B99BF431D7E0B7A2E8AE5338F41EA9A1, L_10, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:129>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:138>
 		return;
 	}
 }
@@ -2932,7 +3005,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_BrushWashing_m47D114E86C
 	int32_t V_2 = 0;
 	int32_t V_3 = 0;
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:138>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:147>
 		float* L_0 = (float*)(&(&___0_pixelUV)->___x);
 		float* L_1 = L_0;
 		float L_2 = *((float*)L_1);
@@ -2941,7 +3014,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_BrushWashing_m47D114E86C
 		int32_t L_4;
 		L_4 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_3);
 		*((float*)L_1) = (float)((float)il2cpp_codegen_multiply(L_2, ((float)L_4)));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:139>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:148>
 		float* L_5 = (float*)(&(&___0_pixelUV)->___y);
 		float* L_6 = L_5;
 		float L_7 = *((float*)L_6);
@@ -2950,7 +3023,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_BrushWashing_m47D114E86C
 		int32_t L_9;
 		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_8);
 		*((float*)L_6) = (float)((float)il2cpp_codegen_multiply(L_7, ((float)L_9)));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:142>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:151>
 		int32_t L_10 = __this->___brushSize;
 		V_0 = ((-L_10));
 		goto IL_00b5;
@@ -2958,7 +3031,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_BrushWashing_m47D114E86C
 
 IL_0038:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:144>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:153>
 		int32_t L_11 = __this->___brushSize;
 		V_1 = ((-L_11));
 		goto IL_00a8;
@@ -2966,7 +3039,7 @@ IL_0038:
 
 IL_0042:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:146>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:155>
 		int32_t L_12 = V_0;
 		int32_t L_13 = V_0;
 		int32_t L_14 = V_1;
@@ -2979,7 +3052,7 @@ IL_0042:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:149>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:158>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_18 = ___0_pixelUV;
 		float L_19 = L_18.___x;
 		int32_t L_20 = V_0;
@@ -2990,7 +3063,7 @@ IL_0042:
 		int32_t L_23;
 		L_23 = Mathf_Clamp_m4DC36EEFDBE5F07C16249DA568023C5ECCFF0E7B_inline(((int32_t)il2cpp_codegen_add(il2cpp_codegen_cast_double_to_int<int32_t>(L_19), L_20)), 0, ((int32_t)il2cpp_codegen_subtract(L_22, 1)), NULL);
 		V_2 = L_23;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:150>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:159>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_24 = ___0_pixelUV;
 		float L_25 = L_24.___y;
 		int32_t L_26 = V_1;
@@ -3001,7 +3074,7 @@ IL_0042:
 		int32_t L_29;
 		L_29 = Mathf_Clamp_m4DC36EEFDBE5F07C16249DA568023C5ECCFF0E7B_inline(((int32_t)il2cpp_codegen_add(il2cpp_codegen_cast_double_to_int<int32_t>(L_25), L_26)), 0, ((int32_t)il2cpp_codegen_subtract(L_28, 1)), NULL);
 		V_3 = L_29;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:151>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:160>
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_30 = __this->___runtimeMask;
 		int32_t L_31 = V_2;
 		int32_t L_32 = V_3;
@@ -3013,14 +3086,14 @@ IL_0042:
 
 IL_00a4:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:144>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:153>
 		int32_t L_34 = V_1;
 		V_1 = ((int32_t)il2cpp_codegen_add(L_34, 1));
 	}
 
 IL_00a8:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:144>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:153>
 		int32_t L_35 = V_1;
 		int32_t L_36 = __this->___brushSize;
 		if ((((int32_t)L_35) < ((int32_t)L_36)))
@@ -3029,14 +3102,14 @@ IL_00a8:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:142>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:151>
 		int32_t L_37 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_37, 1));
 	}
 
 IL_00b5:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:142>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:151>
 		int32_t L_38 = V_0;
 		int32_t L_39 = __this->___brushSize;
 		if ((((int32_t)L_38) < ((int32_t)L_39)))
@@ -3045,11 +3118,30 @@ IL_00b5:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:155>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:164>
 		return;
 	}
 }
 // Method Definition Index: 69180
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_StartGame_m36B352BE8689B2294D3CA00E44936988165E32C5 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___0_tutorialAnimation, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:171>
+		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_0 = ___0_tutorialAnimation;
+		NullCheck(L_0);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1;
+		L_1 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_0, NULL);
+		__this->___tutorialAnimationObject = L_1;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___tutorialAnimationObject), (void*)L_1);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:172>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___tutorialAnimationObject;
+		NullCheck(L_2);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_2, (bool)1, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:173>
+		return;
+	}
+}
+// Method Definition Index: 69181
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_EndGame_mC30F2FA7DEF0E87857754DB96BBCFC92F0A0F659 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___0_restartButton, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3061,14 +3153,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_EndGame_mC30F2FA7DEF0E87
 	}
 	int32_t V_0 = 0;
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:164>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:182>
 		V_0 = 0;
 		goto IL_0016;
 	}
 
 IL_0004:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:166>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:184>
 		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_0 = __this->___hiddenInEndGameAnimationObjects;
 		int32_t L_1 = V_0;
 		NullCheck(L_0);
@@ -3076,14 +3168,14 @@ IL_0004:
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3 = (L_0)->GetAt(static_cast<il2cpp_array_size_t>(L_2));
 		NullCheck(L_3);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_3, (bool)0, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:164>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:182>
 		int32_t L_4 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_4, 1));
 	}
 
 IL_0016:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:164>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:182>
 		int32_t L_5 = V_0;
 		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_6 = __this->___hiddenInEndGameAnimationObjects;
 		NullCheck(L_6);
@@ -3093,54 +3185,69 @@ IL_0016:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:169>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:187>
 		float L_7;
 		L_7 = CleaningManager_GetWashingState_mD4ABA60BE3445779186E83DF8C8CD20576BA8550(__this, NULL);
 		if ((!(((float)L_7) < ((float)(0.5f)))))
 		{
-			goto IL_0051;
+			goto IL_0069;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:171>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:189>
 		Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* L_8 = __this->___objectAnimator;
 		NullCheck(L_8);
 		Animator_SetTrigger_mC9CD54D627C8843EF6E159E167449D216EF6EB30(L_8, _stringLiteral78BC9DBFE67978C4C860815AB21228F5FB31D5C3, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:172>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:190>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_9 = __this->___characterAudioSource;
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_10 = __this->___successSound;
 		NullCheck(L_9);
 		AudioSource_PlayOneShot_m098BCAE084AABB128BB19ED805D2D985E7B75112(L_9, L_10, NULL);
-		goto IL_0072;
-	}
-
-IL_0051:
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:176>
-		Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* L_11 = __this->___objectAnimator;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:191>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_11 = __this->___confettiParticleSystem;
 		NullCheck(L_11);
-		Animator_SetTrigger_mC9CD54D627C8843EF6E159E167449D216EF6EB30(L_11, _stringLiteral551A242FDA5BF37998559E2CB8B52DF645923C9D, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:177>
-		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_12 = __this->___characterAudioSource;
-		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_13 = __this->___failSound;
-		NullCheck(L_12);
-		AudioSource_PlayOneShot_m098BCAE084AABB128BB19ED805D2D985E7B75112(L_12, L_13, NULL);
+		bool L_12;
+		L_12 = ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B(L_11, NULL);
+		if (L_12)
+		{
+			goto IL_008a;
+		}
+	}
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:193>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_13 = __this->___confettiParticleSystem;
+		NullCheck(L_13);
+		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_13, NULL);
+		goto IL_008a;
 	}
 
-IL_0072:
+IL_0069:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:180>
-		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_14 = ___0_restartButton;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:198>
+		Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* L_14 = __this->___objectAnimator;
 		NullCheck(L_14);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_15;
-		L_15 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_14, NULL);
+		Animator_SetTrigger_mC9CD54D627C8843EF6E159E167449D216EF6EB30(L_14, _stringLiteral551A242FDA5BF37998559E2CB8B52DF645923C9D, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:199>
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_15 = __this->___characterAudioSource;
+		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_16 = __this->___failSound;
 		NullCheck(L_15);
-		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_15, (bool)1, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:181>
+		AudioSource_PlayOneShot_m098BCAE084AABB128BB19ED805D2D985E7B75112(L_15, L_16, NULL);
+	}
+
+IL_008a:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:202>
+		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_17 = ___0_restartButton;
+		NullCheck(L_17);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_18;
+		L_18 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_17, NULL);
+		NullCheck(L_18);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_18, (bool)1, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:203>
 		return;
 	}
 }
-// Method Definition Index: 69181
+// Method Definition Index: 69182
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CleaningManager_GetWashingState_mD4ABA60BE3445779186E83DF8C8CD20576BA8550 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, const RuntimeMethod* method) 
 {
 	Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* V_0 = NULL;
@@ -3148,26 +3255,26 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CleaningManager_GetWashingState_mD4ABA6
 	int32_t V_2 = 0;
 	int32_t V_3 = 0;
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:185>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:207>
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_0 = __this->___runtimeMask;
 		NullCheck(L_0);
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_1;
 		L_1 = Texture2D_GetPixels32_m48230192E7543765C1A517F251D1D9BFCFB58C3D(L_0, NULL);
 		V_0 = L_1;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:186>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:208>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_2 = V_0;
 		NullCheck(L_2);
 		V_1 = ((int32_t)(((RuntimeArray*)L_2)->max_length));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:187>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:209>
 		V_2 = 0;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:189>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:211>
 		V_3 = 0;
 		goto IL_0031;
 	}
 
 IL_0016:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:191>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:213>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_3 = V_0;
 		int32_t L_4 = V_3;
 		NullCheck(L_3);
@@ -3178,21 +3285,21 @@ IL_0016:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:193>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:215>
 		int32_t L_6 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_6, 1));
 	}
 
 IL_002d:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:189>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:211>
 		int32_t L_7 = V_3;
 		V_3 = ((int32_t)il2cpp_codegen_add(L_7, 1));
 	}
 
 IL_0031:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:189>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:211>
 		int32_t L_8 = V_3;
 		int32_t L_9 = V_1;
 		if ((((int32_t)L_8) < ((int32_t)L_9)))
@@ -3201,13 +3308,13 @@ IL_0031:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:197>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:219>
 		int32_t L_10 = V_2;
 		int32_t L_11 = V_1;
 		return ((float)(((float)L_10)/((float)L_11)));
 	}
 }
-// Method Definition Index: 69182
+// Method Definition Index: 69183
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_RestartGame_m7101674065516F04D51460BB8BB85274F280B7C3 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3219,20 +3326,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager_RestartGame_m71016740655
 	Scene_tA1DC762B79745EB5140F054C884855B922318356 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:202>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:224>
 		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
 		Scene_tA1DC762B79745EB5140F054C884855B922318356 L_0;
 		L_0 = SceneManager_GetActiveScene_m0B320EC4302F51A71495D1CCD1A0FF9C2ED1FDC8(NULL);
 		V_0 = L_0;
 		int32_t L_1;
 		L_1 = Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E((&V_0), NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:203>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:225>
 		SceneManager_LoadScene_m0957E62F2A0A0243C79394E5B74E8EFA86BE5ED1(L_1, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:204>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/CleaningManager.cs:226>
 		return;
 	}
 }
-// Method Definition Index: 69183
+// Method Definition Index: 69184
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager__ctor_mEFE940FAC726E093EC2FD33B448C054DCC488022 (CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3254,24 +3361,29 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CleaningManager__ctor_mEFE940FAC726E093E
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 69184
+// Method Definition Index: 69185
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timer_Start_m6820D211A06B2E5E24795D7EBE67EE865F39BC43 (Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:36>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:41>
 		__this->___timerIsRunning = (bool)1;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:37>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:42>
 		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_0 = __this->___restartButton;
 		NullCheck(L_0);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1;
 		L_1 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_0, NULL);
 		NullCheck(L_1);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_1, (bool)0, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:38>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:43>
+		CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* L_2 = __this->___cleaningManager;
+		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_3 = __this->___tutorialAnimation;
+		NullCheck(L_2);
+		CleaningManager_StartGame_m36B352BE8689B2294D3CA00E44936988165E32C5(L_2, L_3, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:44>
 		return;
 	}
 }
-// Method Definition Index: 69185
+// Method Definition Index: 69186
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timer_Update_m3AC30EFD54E8E1010F6E601AE179212E71E6B2CD (Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3288,17 +3400,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timer_Update_m3AC30EFD54E8E1010F6E601AE1
 	String_t* G_B3_0 = NULL;
 	String_t* G_B6_0 = NULL;
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:43>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:49>
 		float L_0 = __this->___timeRemaining;
 		int32_t L_1;
 		L_1 = Mathf_FloorToInt_m2A39AE881CAEE6B6A4B3BFEF9CA1ED40625F5AB7_inline(((float)(L_0/(60.0f))), NULL);
 		V_0 = L_1;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:44>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:50>
 		float L_2 = __this->___timeRemaining;
 		int32_t L_3;
 		L_3 = Mathf_FloorToInt_m2A39AE881CAEE6B6A4B3BFEF9CA1ED40625F5AB7_inline((fmodf(L_2, (60.0f))), NULL);
 		V_1 = L_3;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:46>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:52>
 		String_t* L_4;
 		L_4 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_0), NULL);
 		NullCheck(L_4);
@@ -3328,7 +3440,7 @@ IL_0046:
 IL_004d:
 	{
 		V_2 = G_B3_0;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:47>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:53>
 		String_t* L_9;
 		L_9 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_1), NULL);
 		NullCheck(L_9);
@@ -3358,7 +3470,7 @@ IL_0070:
 IL_0077:
 	{
 		V_3 = G_B6_0;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:49>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:55>
 		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_14 = __this->___timerText;
 		String_t* L_15 = V_2;
 		String_t* L_16 = V_3;
@@ -3366,7 +3478,7 @@ IL_0077:
 		L_17 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_15, _stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D, L_16, NULL);
 		NullCheck(L_14);
 		VirtualActionInvoker1< String_t* >::Invoke(66, L_14, L_17);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:51>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:57>
 		float L_18 = __this->___timeRemaining;
 		if ((!(((float)L_18) > ((float)(0.100000001f)))))
 		{
@@ -3374,7 +3486,7 @@ IL_0077:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:53>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:59>
 		float L_19 = __this->___timeRemaining;
 		float L_20;
 		L_20 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
@@ -3384,7 +3496,7 @@ IL_0077:
 
 IL_00af:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:57>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:63>
 		bool L_21 = __this->___timerIsRunning;
 		if (!L_21)
 		{
@@ -3392,7 +3504,7 @@ IL_00af:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:59>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:65>
 		CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* L_22 = __this->___cleaningManager;
 		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_23 = __this->___restartButton;
 		NullCheck(L_22);
@@ -3401,13 +3513,13 @@ IL_00af:
 
 IL_00c8:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:61>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:67>
 		__this->___timerIsRunning = (bool)0;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:63>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/Timer.cs:69>
 		return;
 	}
 }
-// Method Definition Index: 69186
+// Method Definition Index: 69187
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timer__ctor_m5FF13F1DAD0527F97E229A1904A8AD662731C4B5 (Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3425,11 +3537,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timer__ctor_m5FF13F1DAD0527F97E229A1904A
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 69187
+// Method Definition Index: 69188
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_Update_m5EC5227AB6D0BC27F385D9143FEE002418DC4D11 (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:18>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:19>
 		Pointer_t800EF2832B62E889AC9C182E3B18098AF220E32A* L_0;
 		L_0 = Pointer_get_current_m207443803344C305DEAAEBA56C445980D6C22CB3_inline(NULL);
 		NullCheck(L_0);
@@ -3444,9 +3556,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_Update_m5EC5227AB6D0BC27F38
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:20>
-		WaterManager_UpdateHoseStream_m6B954490165A4F88C68DC2C3FABFCC34A10A2E28(__this, NULL);
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:21>
+		WaterManager_UpdateWaterStream_mEBF9F21263BEB4ED2FA876C90DF80002A653A746(__this, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:22>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_3 = __this->___waterAudioSource;
 		NullCheck(L_3);
 		bool L_4;
@@ -3457,7 +3569,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_Update_m5EC5227AB6D0BC27F38
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:23>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:24>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_5 = __this->___waterAudioSource;
 		NullCheck(L_5);
 		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_5, NULL);
@@ -3466,15 +3578,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_Update_m5EC5227AB6D0BC27F38
 
 IL_0030:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:28>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:29>
 		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_6 = __this->___waterStream;
 		NullCheck(L_6);
 		LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205(L_6, 0, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:29>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:30>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_7 = __this->___splashParticles;
 		NullCheck(L_7);
 		ParticleSystem_Stop_m2D8D4967496EF0F5BFEF679C49A9E65A9646C423(L_7, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:31>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:32>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_8 = __this->___waterAudioSource;
 		NullCheck(L_8);
 		bool L_9;
@@ -3485,7 +3597,7 @@ IL_0030:
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:33>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:34>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_10 = __this->___waterAudioSource;
 		NullCheck(L_10);
 		AudioSource_Stop_m318F17F17A147C77FF6E0A5A7A6BE057DB90F537(L_10, NULL);
@@ -3493,24 +3605,12 @@ IL_0030:
 
 IL_005f:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:36>
-		return;
-	}
-}
-// Method Definition Index: 69188
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_StopWater_mEACAEB4C74DF9F64906A5851D6642B23E7688DCA (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:40>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_0 = __this->___waterStream;
-		NullCheck(L_0);
-		Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8(L_0, (bool)0, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:42>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:37>
 		return;
 	}
 }
 // Method Definition Index: 69189
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B954490165A4F88C68DC2C3FABFCC34A10A2E28 (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateWaterStream_mEBF9F21263BEB4ED2FA876C90DF80002A653A746 (WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -3545,7 +3645,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B9544901
 	RaycastHit_t6F30BD0B38B56401CA833A1B87BD74F2ACD2F2B5 V_13;
 	memset((&V_13), 0, sizeof(V_13));
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:47>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:41>
 		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0;
 		L_0 = Camera_get_main_m52C992F18E05355ABB9EEB64A4BF2215E12762DF(NULL);
 		Pointer_t800EF2832B62E889AC9C182E3B18098AF220E32A* L_1;
@@ -3562,7 +3662,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B9544901
 		Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00 L_5;
 		L_5 = Camera_ScreenPointToRay_m2887B9A49880B7AB670C57D66B67D6A6689FE315(L_0, L_4, NULL);
 		V_0 = L_5;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:50>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:44>
 		Ray_t2B1742D7958DC05BDC3EFC7461D3593E1430DC00 L_6 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Physics_t1244C2983AEAFA149425AFFC3DF53BC91C18ED56_il2cpp_TypeInfo_var);
 		bool L_7;
@@ -3573,7 +3673,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B9544901
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:52>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:46>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
 		L_8 = RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39((&V_2), NULL);
 		V_1 = L_8;
@@ -3582,7 +3682,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager_UpdateHoseStream_m6B9544901
 
 IL_0033:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:56>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:50>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
 		L_9 = Ray_get_origin_m97604A8F180316A410DCD77B7D74D04522FA1BA6_inline((&V_0), NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
@@ -3597,279 +3697,280 @@ IL_0033:
 
 IL_0052:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:59>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:53>
 		float* L_14 = (float*)(&(&V_1)->___y);
 		float* L_15 = L_14;
 		float L_16 = *((float*)L_15);
-		*((float*)L_15) = (float)((float)il2cpp_codegen_add(L_16, (0.300000012f)));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:61>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17 = V_1;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_18 = __this->___hosepipeTip;
-		NullCheck(L_18);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
-		L_19 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_18, NULL);
+		float L_17 = __this->___verticalCalibration;
+		*((float*)L_15) = (float)((float)il2cpp_codegen_add(L_16, L_17));
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:55>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_1;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_19 = __this->___hosepipeTip;
+		NullCheck(L_19);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20;
-		L_20 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_17, L_19, NULL);
-		V_3 = L_20;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:62>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_21 = __this->___hosepipeTip;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = V_3;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_23;
-		L_23 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_24;
-		L_24 = Quaternion_LookRotation_mFB02EDC8F733774DFAC3BEA4B4BB265A228F8307_inline(L_22, L_23, NULL);
-		NullCheck(L_21);
-		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_21, L_24, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:63>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_25 = __this->___hosepipeTip;
-		NullCheck(L_25);
-		Transform_Rotate_m7EA47AD57F43D478CCB0523D179950EE49CDA3E2(L_25, (0.0f), (-90.0f), (0.0f), NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:65>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_26 = __this->___splashParticles;
+		L_20 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_19, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_21;
+		L_21 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_18, L_20, NULL);
+		V_3 = L_21;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:56>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_22 = __this->___hosepipeTip;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_23 = V_3;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24;
+		L_24 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_25;
+		L_25 = Quaternion_LookRotation_mFB02EDC8F733774DFAC3BEA4B4BB265A228F8307_inline(L_23, L_24, NULL);
+		NullCheck(L_22);
+		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_22, L_25, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:57>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_26 = __this->___hosepipeTip;
 		NullCheck(L_26);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_27;
-		L_27 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_26, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_28 = V_1;
+		Transform_Rotate_m7EA47AD57F43D478CCB0523D179950EE49CDA3E2(L_26, (0.0f), (-90.0f), (0.0f), NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:59>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_27 = __this->___splashParticles;
 		NullCheck(L_27);
-		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_27, L_28, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:66>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_29 = __this->___splashParticles;
-		NullCheck(L_29);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_30;
-		L_30 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_29, NULL);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_31 = __this->___hosepipeTip;
-		NullCheck(L_31);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_32;
-		L_32 = Transform_get_forward_mFCFACF7165FDAB21E80E384C494DF278386CEE2F(L_31, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_33;
-		L_33 = Vector3_op_UnaryNegation_m5450829F333BD2A88AF9A592C4EE331661225915_inline(L_32, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_28;
+		L_28 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_27, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_29 = V_1;
+		NullCheck(L_28);
+		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_28, L_29, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:60>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_30 = __this->___splashParticles;
 		NullCheck(L_30);
-		Transform_set_forward_mA178B5CF4F0F6133F9AF8ED3A4ECD2C604C60C26(L_30, L_33, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:70>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_34 = __this->___waterStream;
-		NullCheck(L_34);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_35;
-		L_35 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_34, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_31;
+		L_31 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_30, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_32 = __this->___hosepipeTip;
+		NullCheck(L_32);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_33;
+		L_33 = Transform_get_forward_mFCFACF7165FDAB21E80E384C494DF278386CEE2F(L_32, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_34;
+		L_34 = Vector3_op_UnaryNegation_m5450829F333BD2A88AF9A592C4EE331661225915_inline(L_33, NULL);
+		NullCheck(L_31);
+		Transform_set_forward_mA178B5CF4F0F6133F9AF8ED3A4ECD2C604C60C26(L_31, L_34, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:62>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_35 = __this->___waterStream;
 		NullCheck(L_35);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_36;
-		L_36 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_35, NULL);
-		V_4 = L_36;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:71>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_37 = V_1;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_38 = V_4;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_39;
-		L_39 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_37, L_38, NULL);
-		V_9 = L_39;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_36;
+		L_36 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_35, NULL);
+		NullCheck(L_36);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_37;
+		L_37 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_36, NULL);
+		V_4 = L_37;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:63>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_38 = V_1;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_39 = V_4;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_40;
-		L_40 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_9), NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:74>
-		float L_41 = __this->___waterVelocity;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_42;
-		L_42 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_40, L_41, NULL);
-		V_5 = L_42;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:76>
-		float L_43 = __this->___currentOffset;
-		float L_44;
-		L_44 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
-		float L_45 = __this->___waterVelocity;
-		__this->___currentOffset = ((float)il2cpp_codegen_subtract(L_43, ((float)il2cpp_codegen_multiply(L_44, L_45))));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:77>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_46 = __this->___waterStream;
-		NullCheck(L_46);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_47;
-		L_47 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_46, NULL);
-		float L_48 = __this->___currentOffset;
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_49;
-		memset((&L_49), 0, sizeof(L_49));
-		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&L_49), L_48, (0.0f), NULL);
+		L_40 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_38, L_39, NULL);
+		V_9 = L_40;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_41;
+		L_41 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_9), NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:64>
+		float L_42 = __this->___waterVelocity;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_43;
+		L_43 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_41, L_42, NULL);
+		V_5 = L_43;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:66>
+		float L_44 = __this->___currentMaterialOffset;
+		float L_45;
+		L_45 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
+		float L_46 = __this->___waterVelocity;
+		__this->___currentMaterialOffset = ((float)il2cpp_codegen_subtract(L_44, ((float)il2cpp_codegen_multiply(L_45, L_46))));
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:67>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_47 = __this->___waterStream;
 		NullCheck(L_47);
-		Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12(L_47, L_49, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:79>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_48;
+		L_48 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_47, NULL);
+		float L_49 = __this->___currentMaterialOffset;
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_50;
+		memset((&L_50), 0, sizeof(L_50));
+		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&L_50), L_49, (0.0f), NULL);
+		NullCheck(L_48);
+		Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12(L_48, L_50, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:69>
 		V_6 = (bool)0;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:80>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_50 = V_1;
-		V_7 = L_50;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:81>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_51;
-		L_51 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
-		V_8 = L_51;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:83>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_52 = __this->___waterStream;
-		int32_t L_53 = __this->___segmentCount;
-		NullCheck(L_52);
-		LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205(L_52, L_53, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:84>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:70>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_51 = V_1;
+		V_7 = L_51;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:71>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_52;
+		L_52 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
+		V_8 = L_52;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:73>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_53 = __this->___waterStream;
+		int32_t L_54 = __this->___waterSegments;
+		NullCheck(L_53);
+		LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205(L_53, L_54, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:74>
 		V_10 = 0;
-		goto IL_0211;
+		goto IL_0212;
 	}
 
-IL_0164:
+IL_0165:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:86>
-		int32_t L_54 = V_10;
-		V_11 = ((float)il2cpp_codegen_multiply(((float)L_54), (0.0399999991f)));
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:87>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_55 = V_4;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_56 = V_5;
-		float L_57 = V_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_58;
-		L_58 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_56, L_57, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:76>
+		int32_t L_55 = V_10;
+		V_11 = ((float)il2cpp_codegen_multiply(((float)L_55), (0.0399999991f)));
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:77>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_56 = V_4;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_57 = V_5;
+		float L_58 = V_11;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_59;
-		L_59 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_55, L_58, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Physics_t1244C2983AEAFA149425AFFC3DF53BC91C18ED56_il2cpp_TypeInfo_var);
+		L_59 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_57, L_58, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_60;
-		L_60 = Physics_get_gravity_m94393492AE4ED8B38A22ECCDCD2DDDB71BFA010D(NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_61;
-		L_61 = Vector3_op_Multiply_m7F3B0FA9256CE368D7636558EFEFC4AB0E1A0F41_inline((0.5f), L_60, NULL);
-		float L_62 = V_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_63;
-		L_63 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_61, L_62, NULL);
-		float L_64 = V_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_65;
-		L_65 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_63, L_64, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_66;
-		L_66 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_59, L_65, NULL);
-		V_12 = L_66;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:88>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_67 = __this->___waterStream;
-		int32_t L_68 = V_10;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_69 = V_12;
-		NullCheck(L_67);
-		LineRenderer_SetPosition_m84C4AD9ADC6AC62B33DB4D7E4C9F066DFF8440C1(L_67, L_68, L_69, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:91>
-		int32_t L_70 = V_10;
-		if ((((int32_t)L_70) <= ((int32_t)0)))
-		{
-			goto IL_020b;
-		}
-	}
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:93>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_71 = __this->___waterStream;
-		int32_t L_72 = V_10;
-		NullCheck(L_71);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_73;
-		L_73 = LineRenderer_GetPosition_m697105EEB72E687ECC0ECD9E66105F9BF2EF6C4F(L_71, ((int32_t)il2cpp_codegen_subtract(L_72, 1)), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_74 = V_12;
+		L_60 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_56, L_59, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Physics_t1244C2983AEAFA149425AFFC3DF53BC91C18ED56_il2cpp_TypeInfo_var);
-		bool L_75;
-		L_75 = Physics_Linecast_m4F2A0744FE106002EE26D12B6137FC21C019B932(L_73, L_74, (&V_13), NULL);
-		if (!L_75)
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_61;
+		L_61 = Physics_get_gravity_m94393492AE4ED8B38A22ECCDCD2DDDB71BFA010D(NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_62;
+		L_62 = Vector3_op_Multiply_m7F3B0FA9256CE368D7636558EFEFC4AB0E1A0F41_inline((0.5f), L_61, NULL);
+		float L_63 = V_11;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_64;
+		L_64 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_62, L_63, NULL);
+		float L_65 = V_11;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_66;
+		L_66 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_64, L_65, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_67;
+		L_67 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_60, L_66, NULL);
+		V_12 = L_67;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:78>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_68 = __this->___waterStream;
+		int32_t L_69 = V_10;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_70 = V_12;
+		NullCheck(L_68);
+		LineRenderer_SetPosition_m84C4AD9ADC6AC62B33DB4D7E4C9F066DFF8440C1(L_68, L_69, L_70, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:80>
+		int32_t L_71 = V_10;
+		if ((((int32_t)L_71) <= ((int32_t)0)))
 		{
-			goto IL_020b;
+			goto IL_020c;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:95>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_76 = __this->___waterStream;
-		int32_t L_77 = V_10;
-		NullCheck(L_76);
-		LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205(L_76, ((int32_t)il2cpp_codegen_add(L_77, 1)), NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:96>
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_78 = __this->___waterStream;
-		int32_t L_79 = V_10;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_80;
-		L_80 = RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39((&V_13), NULL);
-		NullCheck(L_78);
-		LineRenderer_SetPosition_m84C4AD9ADC6AC62B33DB4D7E4C9F066DFF8440C1(L_78, L_79, L_80, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:98>
-		V_6 = (bool)1;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:99>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:82>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_72 = __this->___waterStream;
+		int32_t L_73 = V_10;
+		NullCheck(L_72);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_74;
+		L_74 = LineRenderer_GetPosition_m697105EEB72E687ECC0ECD9E66105F9BF2EF6C4F(L_72, ((int32_t)il2cpp_codegen_subtract(L_73, 1)), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_75 = V_12;
+		il2cpp_codegen_runtime_class_init_inline(Physics_t1244C2983AEAFA149425AFFC3DF53BC91C18ED56_il2cpp_TypeInfo_var);
+		bool L_76;
+		L_76 = Physics_Linecast_m4F2A0744FE106002EE26D12B6137FC21C019B932(L_74, L_75, (&V_13), NULL);
+		if (!L_76)
+		{
+			goto IL_020c;
+		}
+	}
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:84>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_77 = __this->___waterStream;
+		int32_t L_78 = V_10;
+		NullCheck(L_77);
+		LineRenderer_set_positionCount_m2001FB4044053895ECBE897AB833284F3300B205(L_77, ((int32_t)il2cpp_codegen_add(L_78, 1)), NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:85>
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_79 = __this->___waterStream;
+		int32_t L_80 = V_10;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_81;
 		L_81 = RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39((&V_13), NULL);
-		V_7 = L_81;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:100>
+		NullCheck(L_79);
+		LineRenderer_SetPosition_m84C4AD9ADC6AC62B33DB4D7E4C9F066DFF8440C1(L_79, L_80, L_81, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:87>
+		V_6 = (bool)1;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:88>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_82;
-		L_82 = RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5((&V_13), NULL);
-		V_8 = L_82;
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:103>
-		goto IL_021e;
+		L_82 = RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39((&V_13), NULL);
+		V_7 = L_82;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:89>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_83;
+		L_83 = RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5((&V_13), NULL);
+		V_8 = L_83;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:91>
+		goto IL_021f;
 	}
 
-IL_020b:
+IL_020c:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:84>
-		int32_t L_83 = V_10;
-		V_10 = ((int32_t)il2cpp_codegen_add(L_83, 1));
-	}
-
-IL_0211:
-	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:84>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:74>
 		int32_t L_84 = V_10;
-		int32_t L_85 = __this->___segmentCount;
-		if ((((int32_t)L_84) < ((int32_t)L_85)))
+		V_10 = ((int32_t)il2cpp_codegen_add(L_84, 1));
+	}
+
+IL_0212:
+	{
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:74>
+		int32_t L_85 = V_10;
+		int32_t L_86 = __this->___waterSegments;
+		if ((((int32_t)L_85) < ((int32_t)L_86)))
 		{
-			goto IL_0164;
+			goto IL_0165;
 		}
 	}
 
-IL_021e:
+IL_021f:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:108>
-		bool L_86 = V_6;
-		if (!L_86)
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:96>
+		bool L_87 = V_6;
+		if (!L_87)
 		{
-			goto IL_025f;
+			goto IL_0260;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:111>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_87 = __this->___splashParticles;
-		NullCheck(L_87);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_88;
-		L_88 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_87, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_89 = V_7;
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:98>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_88 = __this->___splashParticles;
 		NullCheck(L_88);
-		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_88, L_89, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:116>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_90 = __this->___splashParticles;
-		NullCheck(L_90);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_91;
-		L_91 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_90, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_92 = V_8;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_89;
+		L_89 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_88, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_90 = V_7;
+		NullCheck(L_89);
+		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_89, L_90, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:100>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_91 = __this->___splashParticles;
 		NullCheck(L_91);
-		Transform_set_forward_mA178B5CF4F0F6133F9AF8ED3A4ECD2C604C60C26(L_91, L_92, NULL);
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:118>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_93 = __this->___splashParticles;
-		NullCheck(L_93);
-		bool L_94;
-		L_94 = ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B(L_93, NULL);
-		if (L_94)
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_92;
+		L_92 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_91, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_93 = V_8;
+		NullCheck(L_92);
+		Transform_set_forward_mA178B5CF4F0F6133F9AF8ED3A4ECD2C604C60C26(L_92, L_93, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:102>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_94 = __this->___splashParticles;
+		NullCheck(L_94);
+		bool L_95;
+		L_95 = ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B(L_94, NULL);
+		if (L_95)
 		{
-			goto IL_0277;
+			goto IL_0278;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:118>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_95 = __this->___splashParticles;
-		NullCheck(L_95);
-		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_95, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:102>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_96 = __this->___splashParticles;
+		NullCheck(L_96);
+		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_96, NULL);
 		return;
 	}
 
-IL_025f:
+IL_0260:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:123>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_96 = __this->___splashParticles;
-		NullCheck(L_96);
-		bool L_97;
-		L_97 = ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B(L_96, NULL);
-		if (!L_97)
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:106>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_97 = __this->___splashParticles;
+		NullCheck(L_97);
+		bool L_98;
+		L_98 = ParticleSystem_get_isPlaying_mC5170DA3C904670B88200C8DA1E0F8FC1BC7C42B(L_97, NULL);
+		if (!L_98)
 		{
-			goto IL_0277;
+			goto IL_0278;
 		}
 	}
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:123>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_98 = __this->___splashParticles;
-		NullCheck(L_98);
-		ParticleSystem_Stop_m2D8D4967496EF0F5BFEF679C49A9E65A9646C423(L_98, NULL);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:106>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_99 = __this->___splashParticles;
+		NullCheck(L_99);
+		ParticleSystem_Stop_m2D8D4967496EF0F5BFEF679C49A9E65A9646C423(L_99, NULL);
 	}
 
-IL_0277:
+IL_0278:
 	{
-		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:125>
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:108>
 		return;
 	}
 }
@@ -3878,11 +3979,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaterManager__ctor_mE1B758214D2B63553897
 {
 	{
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:10>
-		__this->___segmentCount = ((int32_t)12);
+		__this->___waterSegments = ((int32_t)12);
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:11>
 		__this->___waterVelocity = (5.0f);
 		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:12>
 		__this->___streamDistance = (1.39999998f);
+		//<source_info:C:/Users/pauli/Documents/Unity Projects/diggy-playable/diggy-playable/Assets/Scripts/WaterRenderer.cs:13>
+		__this->___verticalCalibration = (0.300000012f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}

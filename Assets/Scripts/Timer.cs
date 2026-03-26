@@ -27,6 +27,11 @@ public class Timer : MonoBehaviour
     public Button restartButton;
 
     /// <summary>
+    /// UI element of tutorial animation.
+    /// </summary>
+    public Image tutorialAnimation;
+
+    /// <summary>
     /// Main cleaning manager script instance.
     /// </summary>
     public CleaningManager cleaningManager;
@@ -35,6 +40,7 @@ public class Timer : MonoBehaviour
     {
         timerIsRunning = true;
         restartButton.gameObject.SetActive(false);
+        cleaningManager.StartGame(tutorialAnimation);
     }
 
     void Update()

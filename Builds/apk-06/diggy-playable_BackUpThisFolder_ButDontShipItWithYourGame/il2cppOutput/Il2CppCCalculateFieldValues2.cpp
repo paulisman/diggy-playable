@@ -30016,11 +30016,13 @@ struct CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527  : public MonoB
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___characterAudioSource;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___successSound;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___failSound;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___confettiParticleSystem;
 	Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* ___runtimeMask;
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___objectAnimator;
 	bool ___wasTurned;
 	Nullable_1_tAC9037ECF4C188DFFE614617119CAC19A784F9FD ___lastPixelUV;
 	float ___interpolationStepSize;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___tutorialAnimationObject;
 };
 struct CullingJob_t4206A6B00371EC11303617597A8DA5BFCCF92681 
 {
@@ -30384,6 +30386,7 @@ struct Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20  : public MonoBehaviour_t
 	bool ___timerIsRunning;
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___timerText;
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___restartButton;
+	Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___tutorialAnimation;
 	CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527* ___cleaningManager;
 };
 struct UIBehaviour_tB9D4295827BD2EEDEF0749200C6CA7090C742A9D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -30395,11 +30398,11 @@ struct WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04  : public MonoBeha
 	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___waterStream;
 	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___splashParticles;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___waterAudioSource;
-	int32_t ___segmentCount;
+	int32_t ___waterSegments;
 	float ___waterVelocity;
 	float ___streamDistance;
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___waterMaterial;
-	float ___currentOffset;
+	float ___verticalCalibration;
+	float ___currentMaterialOffset;
 };
 struct DropdownItem_t3D307172264EF209B266052B655D7D4314E660F8  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -39226,15 +39229,15 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8410[1] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8419[3] = 
 {
 	static_cast<int32_t>(offsetof(AnimationMeshCollider_tB269491FD5BF9671431DC63D174982858DB48AD4, ___skinnedMeshRenderer)),static_cast<int32_t>(offsetof(AnimationMeshCollider_tB269491FD5BF9671431DC63D174982858DB48AD4, ___meshCollider)),static_cast<int32_t>(offsetof(AnimationMeshCollider_tB269491FD5BF9671431DC63D174982858DB48AD4, ___bakedMesh)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8420[14] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8420[16] = 
 {
-	static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___objectMaterial)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___hiddenInEndGameAnimationObjects)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___currentDirt)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___cleaningSpeed)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___baseMask)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___brushSize)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___characterAudioSource)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___successSound)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___failSound)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___runtimeMask)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___objectAnimator)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___wasTurned)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___lastPixelUV)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___interpolationStepSize)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8421[5] = 
+	static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___objectMaterial)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___hiddenInEndGameAnimationObjects)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___currentDirt)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___cleaningSpeed)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___baseMask)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___brushSize)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___characterAudioSource)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___successSound)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___failSound)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___confettiParticleSystem)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___runtimeMask)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___objectAnimator)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___wasTurned)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___lastPixelUV)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___interpolationStepSize)),static_cast<int32_t>(offsetof(CleaningManager_tD477ED38D7BA2EB75DF301FEDEE316E7C5B4B527, ___tutorialAnimationObject)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8421[6] = 
 {
-	static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timeRemaining)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timerIsRunning)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timerText)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___restartButton)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___cleaningManager)),};
+	static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timeRemaining)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timerIsRunning)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___timerText)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___restartButton)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___tutorialAnimation)),static_cast<int32_t>(offsetof(Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20, ___cleaningManager)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8422[9] = 
 {
-	static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___hosepipeTip)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterStream)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___splashParticles)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterAudioSource)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___segmentCount)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterVelocity)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___streamDistance)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterMaterial)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___currentOffset)),};
+	static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___hosepipeTip)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterStream)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___splashParticles)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterAudioSource)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterSegments)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___waterVelocity)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___streamDistance)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___verticalCalibration)),static_cast<int32_t>(offsetof(WaterManager_tEB21E29228D5A77F0AC59D7992C148B840651B04, ___currentMaterialOffset)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8423[4] = 
 {
 	static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___heading)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___text)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___linkText)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___url)),};
